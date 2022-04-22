@@ -1,5 +1,7 @@
 import React,{ useState }  from 'react'
 import Filter from './Filter'
+import { Rating } from 'react-simple-star-rating'
+import {Link} from  'react-router-dom' 
 
 function MovieList({movies}) {
     const [filter, setFilter] = useState("");
@@ -18,8 +20,7 @@ function MovieList({movies}) {
         
 
         <div className="card" style={{width: "18rem",color:"black"}}>
-            {/* <Filter rating={(rating)=>getRating(rating)} filter={filter => getFilter(filter)}/> */}
-        {/* { movies.filter( (el) => (el.Title.toLowerCase().includes(filter.toLowerCase()))|| ((el.Rating)>=(rating))) .map((el) => */}
+           
         {movies.map((movies) =>
 
         <div className="card" style={{width: "18rem",color:"black"}}>
@@ -31,7 +32,8 @@ function MovieList({movies}) {
                 
         <star>{movies.Rating}</star>
         <br/>
-        <a href="#" className="btn btn-primary">Go somewhere</a>
+        <Link  to={`/movie/${movies.id}`}>
+        <button className="btn btn-primary">More Details</button></Link>
     </div> 
     </div>  
           )}
